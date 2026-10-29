@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata Profil | Mochammad Rifani Rohman</title>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome untuk Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-orange: #f97316;
+            --nav-bg: rgba(15, 23, 42, 0.9);
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme="light"] {
+            --bg-dark: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --nav-bg: rgba(248, 250, 252, 0.9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        h1, h2, h3 {
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--accent-orange);
+            border-radius: 2px;
+        }
+
+        p {
+            color: var(--text-muted);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-blue);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-orange);
+            color: #fff;
+        }
+
+        /* Sticky Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            z-index: 2;
+        }
+
+        .logo span {
+            color: var(--accent-orange);
+        }
+
+        /* Nav links di tengah untuk Desktop */
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Navbar Controls / Switches di Kanan */
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 2;
+        }
+
+        .switch-container {
+            position: relative;
+            display: inline-block;
+            width: 56px;
+            height: 28px;
+        }
+
+        .switch-container input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--bg-card);
+            border: 1px solid var(--accent-blue);
+            transition: .4s;
+            border-radius: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 6px;
+            user-select: none;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 4px;
+            bottom: 3px;
+            background-color: var(--accent-blue);
+            transition: .4s;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Theme Switch Icons */
+        .slider .fa-moon {
+            color: #f1c40f;
+            font-size: 12px;
+        }
+
+        .slider .fa-sun {
+            color: #f39c12;
+            font-size: 12px;
+        }
+
+        /* Language Switch Text */
+        .lang-text {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--text-main);
+            text-transform: uppercase;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content h1 span {
+            color: var(--accent-orange);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-desc {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-blue);
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .status-local { background-color: var(--accent-orange); }
+        .status-live { background-color: var(--accent-blue); }
+
+        .project-links a {
+            display: inline-block;
+            margin-right: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            transition: var(--transition);
+            word-break: break-word;
+        }
+
+        .project-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* About Section */
+        .about-profile {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .about-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-orange);
+            flex-shrink: 0;
+            box-shadow: 0 0 15px rgba(249, 115, 22, 0.3);
+        }
+
+        .about-bio h3 {
+            font-size: 1.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 0.75rem;
+        }
+
+        .about-bio p {
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .personal-info {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .personal-info strong {
+            color: var(--text-main);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid var(--accent-blue);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.45rem;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background: var(--bg-dark);
+            border: 3px solid var(--accent-blue);
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--accent-orange);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .skills-category {
+            margin-bottom: 2rem;
+        }
+        
+        .skills-category h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-blue);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: var(--bg-card);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+        }
+
+        .skill-item:hover {
+            border-color: var(--accent-orange);
+            transform: translateY(-3px);
+        }
+
+        /* Contact Section */
+        #contact {
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--bg-card);
+            border-radius: 50%;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--accent-blue);
+            transform: translateY(-5px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Media Queries untuk HP/Mobile */
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+
+            h2 { 
+                font-size: 2rem; 
+                margin-bottom: 2rem;
+            }
+
+            #hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 120px 0 60px 0;
+            }
+
+            .hero-content h1 { 
+                font-size: 2.2rem; 
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons { 
+                flex-direction: column; 
+                gap: 1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-profile { 
+                flex-direction: column; 
+                text-align: center; 
+                gap: 1.5rem; 
+                padding: 1.5rem;
+            }
+
+            .about-img {
+                width: 140px;
+                height: 140px;
+            }
+
+            .about-grid { 
+                grid-template-columns: 1fr; 
+                gap: 2.5rem; 
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                transform: none;
+                width: 100%;
+                background: var(--bg-card);
+                padding: 20px;
+                text-align: center;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+                flex-direction: column;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-controls {
+                gap: 6px;
+            }
+
+            .switch-container {
+                width: 48px;
+                height: 24px;
+            }
+
+            .slider:before {
+                height: 16px;
+                width: 16px;
+                left: 3px;
+                bottom: 3px;
+            }
+
+            input:checked + .slider:before {
+                transform: translateX(22px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">My Portofolio<span>.</span></a>
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#hero" data-key="nav_home">Beranda</a></li>
+                <li><a href="#projects" data-key="nav_projects">Project</a></li>
+                <li><a href="#about" data-key="nav_about">Tentang Saya</a></li>
+                <li><a href="#contact" data-key="nav_contact">Kontak</a></li>
+            </ul>
+
+            <div class="nav-controls">
+                <!-- Theme Switch (Light/Dark) -->
+                <label class="switch-container" title="Ganti Mode Tampilan">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </span>
+                </label>
+                <!-- Language Switch (ID/EN) -->
+                <label class="switch-container" title="Ganti Bahasa">
+                    <input type="checkbox" id="lang-toggle">
+                    <span class="slider">
+                        <span class="lang-text">id</span>
+                        <span class="lang-text">en</span>
+                    </span>
+                </label>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p data-key="hero_greeting">Halo, salam kenal Aku Ifann!</p>
+                <h1>Mochammad Rifani <span>Rohman</span></h1>
+                <p data-key="hero_desc">Seorang mahasiswa yang sangat tertarik pada teknologi dan pemrograman. Saya memiliki ketertarikan yang tinggi dengan dunia IT, dan selalu ingin belajar Tentang hal-hal baru.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary" data-key="btn_projects">Lihat Project</a>
+                    <a href="#about" class="btn btn-outline" data-key="btn_about">Profil Lengkap</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 data-key="projects_title">Pengalaman Project</h2>
+            <div class="projects-grid">
+                
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="status-badge status-live" data-key="status_live">Live project</div>
+                   <img src="images/catering.jpg" alt="Website Catering" class="project-img">
+                    <div class="project-content">
+                        <h3 class="project-title" data-key="p1_title">Website Catering</h3>
+                        <p class="project-desc" data-key="p1_desc">Sistem pemesanan catering online untuk memudahkan pengelolaan menu makanan dan transaksi pelanggan secara digital.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://cateringbuminthuk.co-id.id/"><i class="fab fa-chrome"></i> <span data-key="view_repo">Lihat Repository</span> </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="status-badge status-local" data-key="status_local">Local/Prototype</div>
+                  <img src="images/toko-online.jpg" alt="Toko Online" class="project-img">
+                    <div class="project-content">
+                        <h3 class="project-title" data-key="p2_title">Website Toko Online</h3>
+                        <p class="project-desc" data-key="p2_desc">Platform e-commerce sederhana dengan fitur etalase produk, detail barang, pengelolaan keranjang belanja, dan pengelolaan sistem admin dan karyawan yang berbeda.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://fann.co-id.id/fann_store/"><i class="fab fa-chrome"></i> <span data-key="view_repo">Lihat Repository</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="status-badge status-live" data-key="status_live_proto">Live Prototype</div>
+                    <img src="images/latihan-soal.jpg" alt="Website Latihan Soal" class="project-img">
+                    <div class="project-content">
+                        <h3 class="project-title" data-key="p3_title">Website Latihan Soal</h3>
+                        <p class="project-desc" data-key="p3_desc">Web interaktif untuk latihan kuis, soal ujian, dan video materi pembahasan guna membantu siswa untuk mengevaluasi kemampuan pemahaman materi.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">PHP</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://techone-smada.github.io/UPRAK-MTL_KLS_12-1_TA_2025-2026/"><i class="fab fa-chrome"></i> <span data-key="view_repo">Lihat Repository</span></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 data-key="about_title">Tentang Saya</h2>
+            
+            <!-- Profil Foto dan Bio Singkat -->
+            <div class="about-profile">
+                <!-- Ubah nama file foto-profil.jpg dengan foto aslimu (letakkan di folder yang sama) -->
+               <img src="images/foto-rifani.jpg" alt="Foto Mochammad Rifani Rohman" class="about-img">
+                <div class="about-bio">
+                    <h3 data-key="bio_role">Mahasiswa Antusias & Pengembang Web</h3>
+                    <p data-key="bio_desc">Tumbuh dengan ketertarikan mendalam pada teknologi dan komputer, saya mulai mengeksplorasi dunia pemrograman dan pembuatan website secara otodidak maupun melalui proyek-proyek pembelajaran. Saya menikmati proses memecahkan masalah (problem solving) di setiap baris kode yang saya buat. Tujuan utama saya adalah terus mengembangkan kemampuan di bidang teknologi informasi untuk menciptakan solusi digital yang bermanfaat.</p>
+                    
+                    <div class="personal-info">
+                        <p><strong data-key="info_name_label">Nama:</strong> Mochammad Rifani Rohman</p>
+                        <p><strong data-key="info_birth_label">Tempat, Tgl Lahir:</strong> <span data-key="info_birth_val">Bojonegoro, 06 Desember 2007</span></p>
+                        <p><strong data-key="info_focus_label">Fokus:</strong> <span data-key="info_focus_val">Pengembangan Website & Eksplorasi AI</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-grid">
+                <!-- Timeline Pendidikan -->
+                <div class="education-section">
+                    <h3 style="color: var(--accent-orange); margin-bottom: 2rem;"><i class="fas fa-graduation-cap"></i> <span data-key="edu_title">Riwayat Pendidikan</span></h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date" data-key="edu1_date">Mahasiswa Aktif</div>
+                            <h4 class="timeline-title" data-key="edu1_school">Universitas Negeri Surabaya - Pend. Teknologi Informasi</h4>
+                            <p data-key="edu1_desc">Mendalami dasar-dasar ilmu komputer, pengembangan perangkat lunak, serta implementasi teknologi informasi dalam berbagai bidang.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date" data-key="edu2_date">Lulusan</div>
+                            <h4 class="timeline-title" data-key="edu2_school">SMAN 2 Taruna Pamong Praja Jawa Timur</h4>
+                            <p data-key="edu2_desc">Membangun kedisiplinan, karakter kepemimpinan, sekaligus menumbuhkan minat awal pada eksplorasi ilmu komputer.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kategori Skills -->
+                <div class="skills-section">
+                    <h3 style="color: var(--accent-orange); margin-bottom: 2rem;"><i class="fas fa-code"></i> <span data-key="skills_title">Keahlian & Minat</span></h3>
+                    
+                    <div class="skills-category">
+                        <h3>Web Development</h3>
+                        <div class="skills-list">
+                            <div class="skill-item">HTML</div>
+                            <div class="skill-item">CSS</div>
+                            <div class="skill-item">JavaScript</div>
+                            <div class="skill-item">PHP</div>
+                            <div class="skill-item">MySQL</div>
+                        </div>
+                    </div>
+
+                    <div class="skills-category">
+                        <h3 data-key="other_skills_title">Keterampilan Lainnya</h3>
+                        <div class="skills-list">
+                            <div class="skill-item" data-key="skill_ps">Pemecahan Masalah (Problem Solving)</div>
+                            <div class="skill-item" data-key="skill_app">Eksplorasi Aplikasi</div>
+                            <div class="skill-item" data-key="skill_self">Belajar Mandiri (Otodidak)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 data-key="contact_title">Mari Berdiskusi</h2>
+            <div class="contact-info">
+                <p data-key="contact_desc">Memiliki kesamaan minat di bidang teknologi, atau ada peluang project website yang bisa dikerjakan bersama? Jangan ragu untuk menyapa saya!</p>
+            </div>
+            
+            <div class="social-links">
+                <!-- Ganti link dengan akun sosial media asli Anda -->
+                <a href="mailto:rifanirohman2007@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/rifanirohman" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://instagram.com/rifanirohman_" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/6281939031811" target="_blank" title="Whatsapp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Rifani Rohman.</p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        /* Dark / Light Theme Toggle */
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('change', () => {
+            if (themeToggle.checked) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+            }
+        });
+
+    
+        const translations = {
+            id: {
+                nav_home: "Beranda",
+                nav_projects: "Project",
+                nav_about: "Tentang Saya",
+                nav_contact: "Kontak",
+                hero_greeting: "Halo, salam kenal Aku Ifann!",
+                hero_desc: "Seorang mahasiswa yang sangat tertarik pada teknologi dan pemrograman. Saya memiliki ketertarikan yang tinggi dengan dunia IT, dan selalu ingin belajar Tentang hal-hal baru.",
+                btn_projects: "Lihat Project",
+                btn_about: "Profil Lengkap",
+                projects_title: "Pengalaman Project",
+                status_live: "Live project",
+                status_local: "Local/Prototype",
+                status_live_proto: "Live Prototype",
+                p1_title: "Website Catering",
+                p1_desc: "Sistem pemesanan catering online untuk memudahkan pengelolaan menu makanan dan transaksi pelanggan secara digital.",
+                p2_title: "Website Toko Online",
+                p2_desc: "Platform e-commerce sederhana dengan fitur etalase produk, detail barang, pengelolaan keranjang belanja, dan pengelolaan sistem admin dan karyawan yang berbeda.",
+                p3_title: "Website Latihan Soal",
+                p3_desc: "Web interaktif untuk latihan kuis, soal ujian, dan video materi pembahasan guna membantu siswa untuk mengevaluasi kemampuan pemahaman materi.",
+                view_repo: "Lihat Repository",
+                about_title: "Tentang Saya",
+                bio_role: "Mahasiswa Antusias & Pengembang Web",
+                bio_desc: "Tumbuh dengan ketertarikan mendalam pada teknologi dan komputer, saya mulai mengeksplorasi dunia pemrograman dan pembuatan website secara otodidak maupun melalui proyek-proyek pembelajaran. Saya menikmati proses memecahkan masalah (problem solving) di setiap baris kode yang saya buat. Tujuan utama saya adalah terus mengembangkan kemampuan di bidang teknologi informasi untuk menciptakan solusi digital yang bermanfaat.",
+                info_name_label: "Nama:",
+                info_birth_label: "Tempat, Tgl Lahir:",
+                info_birth_val: "Bojonegoro, 06 Desember 2007",
+                info_focus_label: "Fokus:",
+                info_focus_val: "Pengembangan Website & Eksplorasi AI",
+                edu_title: "Riwayat Pendidikan",
+                edu1_date: "Mahasiswa Aktif",
+                edu1_school: "Universitas Negeri Surabaya - Pend. Teknologi Informasi",
+                edu1_desc: "Mendalami dasar-dasar ilmu komputer, pengembangan perangkat lunak, serta implementasi teknologi informasi dalam berbagai bidang.",
+                edu2_date: "Lulusan",
+                edu2_school: "SMAN 2 Taruna Pamong Praja Jawa Timur",
+                edu2_desc: "Membangun kedisiplinan, karakter kepemimpinan, sekaligus menumbuhkan minat awal pada eksplorasi ilmu komputer.",
+                skills_title: "Keahlian & Minat",
+                other_skills_title: "Keterampilan Lainnya",
+                skill_ps: "Pemecahan Masalah (Problem Solving)",
+                skill_app: "Eksplorasi Aplikasi",
+                skill_self: "Belajar Mandiri (Otodidak)",
+                contact_title: "Mari Berdiskusi",
+                contact_desc: "Memiliki kesamaan minat di bidang teknologi, atau ada peluang project website yang bisa dikerjakan bersama? Jangan ragu untuk menyapa saya!"
+            },
+            en: {
+                nav_home: "Home",
+                nav_projects: "Projects",
+                nav_about: "About Me",
+                nav_contact: "Contact",
+                hero_greeting: "Hello, nice to meet you, I'm Ifann!",
+                hero_desc: "A student deeply interested in technology and programming. I have a strong passion for IT and I'm always eager to learn new things.",
+                btn_projects: "View Projects",
+                btn_about: "Full Profile",
+                projects_title: "Project Experience",
+                status_live: "Live Project",
+                status_local: "Local/Prototype",
+                status_live_proto: "Live Prototype",
+                p1_title: "Catering Website",
+                p1_desc: "An online catering ordering system to simplify food menu management and digital customer transactions.",
+                p2_title: "Online Store Website",
+                p2_desc: "A simple e-commerce platform featuring product showcases, item details, shopping cart management, and separate admin/employee systems.",
+                p3_title: "Practice Exam Website",
+                p3_desc: "An interactive web for quiz exercises, exam questions, and discussion video materials to help students evaluate their understanding.",
+                view_repo: "View Repository",
+                about_title: "About Me",
+                bio_role: "Enthusiastic Student & Web Developer",
+                bio_desc: "Growing up with a deep interest in technology and computers, I started exploring programming and web development self-taught and through learning projects. I enjoy the problem-solving process in every line of code I write. My main goal is to continuously develop my skills in IT to create beneficial digital solutions.",
+                info_name_label: "Name:",
+                info_birth_label: "Place, Date of Birth:",
+                info_birth_val: "Bojonegoro, December 6, 2007",
+                info_focus_label: "Focus:",
+                info_focus_val: "Web Development & AI Exploration",
+                edu_title: "Education History",
+                edu1_date: "Active Student",
+                edu1_school: "State University of Surabaya - Information Technology Edu",
+                edu1_desc: "Studying computer science fundamentals, software development, and information technology implementation in various fields.",
+                edu2_date: "Graduate",
+                edu2_school: "SMAN 2 Taruna Pamong Praja East Java",
+                edu2_desc: "Built discipline, leadership character, and nurtured an early interest in exploring computer science.",
+                skills_title: "Skills & Interests",
+                other_skills_title: "Other Skills",
+                skill_ps: "Problem Solving",
+                skill_app: "Application Exploration",
+                skill_self: "Self-Taught Learning",
+                contact_title: "Let's Connect",
+                contact_desc: "Share similar interests in technology, or have web project opportunities to work on together? Feel free to reach out!"
+            }
+        };
+
+        const langToggle = document.getElementById('lang-toggle');
+        langToggle.addEventListener('change', () => {
+            const currentLang = langToggle.checked ? 'en' : 'id';
+            document.querySelectorAll('[data-key]').forEach(elem => {
+                const key = elem.getAttribute('data-key');
+                if (translations[currentLang][key]) {
+                    elem.textContent = translations[currentLang][key];
+                }
+            });
+        });
+    </script>
+</body>
+</html>
